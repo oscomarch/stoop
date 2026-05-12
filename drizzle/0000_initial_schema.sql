@@ -23,7 +23,7 @@ CREATE TABLE "homeowner_profiles" (
 	"user_id" uuid PRIMARY KEY NOT NULL,
 	"address_line" text,
 	"neighborhood" text,
-	"location" "geography(Point, 4326)",
+	"location" geography(Point, 4326),
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL
 );
@@ -39,7 +39,7 @@ CREATE TABLE "jobs" (
 	"budget_high" numeric(10, 2),
 	"urgency" "job_urgency" DEFAULT 'flexible' NOT NULL,
 	"status" "job_status" DEFAULT 'open' NOT NULL,
-	"location" "geography(Point, 4326)",
+	"location" geography(Point, 4326),
 	"neighborhood" text,
 	"awarded_bid_id" uuid,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE "reviews" (
 	"job_id" uuid,
 	"rating" integer NOT NULL,
 	"comment" text,
-	"reviewer_location" "geography(Point, 4326)",
+	"reviewer_location" geography(Point, 4326),
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
@@ -67,7 +67,7 @@ CREATE TABLE "tradesperson_profiles" (
 	"insurance_carrier" text,
 	"hourly_rate_low" numeric(10, 2),
 	"hourly_rate_high" numeric(10, 2),
-	"home_base" "geography(Point, 4326)",
+	"home_base" geography(Point, 4326),
 	"service_radius_meters" integer DEFAULT 8000,
 	"verified" boolean DEFAULT false NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,

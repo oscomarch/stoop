@@ -33,6 +33,14 @@ import {
 /**
  * Custom Drizzle type for PostGIS `geography(Point, 4326)`.
  * Stored as WKT in JS land; SQL casts handle conversion.
+ *
+ * KNOWN GOTCHA: drizzle-kit wraps the returned dataType in double quotes when
+ * generating migrations, which produces invalid SQL for parameterized PostGIS
+ * types (`"geography(Point, 4326)"` instead of `geography(Point, 4326)`).
+ * After running `npm run db:generate`, sed the migration file to strip the
+ * quotes, or run this from the project root:
+ *
+ *   sed -i '' 's/"geography(Point, 4326)"/geography(Point, 4326)/g' drizzle/*.sql
  */
 export const geography = customType<{
   data: string;

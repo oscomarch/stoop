@@ -1,5 +1,8 @@
 import type { Config } from "drizzle-kit";
-import "dotenv/config";
+import { config } from "dotenv";
+
+config({ path: ".env.local" });
+config({ path: ".env", override: false });
 
 export default {
   schema: "./lib/db/schema.ts",
