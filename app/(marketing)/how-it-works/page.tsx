@@ -7,7 +7,7 @@ import { TRADES } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "How it works",
   description:
-    "How Stoop matches Brooklyn homeowners with neighborhood-vetted tradespeople — post a job, get bids, pay through escrow, leave a neighbor-trust review.",
+    "How Stoop matches Brooklyn homeowners with vetted local pros. Post a job, get bids, pay through escrow, leave a review your neighbors will see.",
 };
 
 export default function HowItWorksPage() {
@@ -21,8 +21,8 @@ export default function HowItWorksPage() {
           One marketplace. Four moving parts. Zero gambling.
         </h1>
         <p className="mt-6 text-xl leading-relaxed text-ink-600 text-pretty">
-          Most home-services platforms are matchmakers. They take a finder&apos;s fee
-          and disappear. Stoop is different — we hold the money, anchor the
+          Most home-services platforms are matchmakers. They take a finder&apos;s
+          fee and disappear. Stoop is different. We hold the money, tie the
           reviews to the block, and stick around for the whole job.
         </p>
       </section>
@@ -31,29 +31,29 @@ export default function HowItWorksPage() {
         <ol className="space-y-12">
           <Step
             number="01"
-            title="Post the job in 60 seconds."
+            title="Post the job in about a minute."
             body={
               <>
-                Pick a trade. Snap a photo. Describe what&apos;s broken or what you
-                want. Set a budget range (optional, but it helps pros say yes
-                faster). Pick your urgency: flexible, this week, or ASAP.
+                Pick a trade. Snap a photo. Describe what&apos;s broken or what
+                you want. Set a budget range if you can (optional, but it helps
+                pros say yes faster). Pick your urgency: flexible, this week, or ASAP.
               </>
             }
-            example="Example: 'Bathroom radiator hissing constantly. Pre-war building, original cast iron. Photo attached. Budget $150-300. This week.'"
+            example="Example: &quot;Bathroom radiator hissing constantly. Pre-war building, original cast iron. Photo attached. Budget $150 to $300. This week.&quot;"
           />
           <Step
             number="02"
-            title="Vetted pros nearby bid on your job."
+            title="Vetted pros nearby send bids."
             body={
               <>
-                Every Stoop pro is verified — license number, insurance carrier,
-                and identity all checked before they can bid. They see your job,
-                send a price and a short message, and tell you when they can
-                come. You see their profile, their work history, and reviews
-                from your <em>actual neighbors</em>.
+                Every Stoop pro is verified before they can bid. We check their
+                license number, their insurance carrier, and their identity. They
+                see your job, send a price and a short message, and tell you
+                when they can come. You see their profile, their work history,
+                and reviews from your <em>actual neighbors</em>.
               </>
             }
-            example="You usually get 3–5 bids within a day. Pick the one you trust, not just the cheapest."
+            example="You usually see 3 to 5 bids within a day. Pick the one you trust, not just the cheapest."
           />
           <Step
             number="03"
@@ -62,24 +62,22 @@ export default function HowItWorksPage() {
               <>
                 When you accept a bid, you fund escrow with a credit card or
                 bank transfer. The pro shows up knowing the money is already
-                there. You release the money only when the job is done to your
-                satisfaction.
+                there. You release it when the job is done to your satisfaction.
               </>
             }
-            example="No cash up front. No surprise charges. Disputes go through Stoop, not your insurance company."
+            example="No cash up front. No surprise charges at the end. If something goes wrong, disputes go through Stoop, not your insurance company."
           />
           <Step
             number="04"
-            title="Leave a review your neighbors will see first."
+            title="Leave a review your block will see."
             body={
               <>
-                When the work is done, leave an honest review. We anchor it to
-                your block, so the next person who looks up that pro from your
-                neighborhood sees your review at the top — ranked by physical
-                distance from them.
+                When the work is done, leave an honest review. We tie it to your
+                address, so the next person nearby who looks up that pro sees
+                your review at the top, ranked by physical distance.
               </>
             }
-            example="'Sarah from 2 doors down on Garfield Pl' beats 'Sarah from 4 miles away' every time."
+            example="&quot;Sarah from 2 doors down on Garfield Pl&quot; beats &quot;Sarah from 4 miles away&quot; every time."
           />
         </ol>
       </section>
@@ -90,7 +88,7 @@ export default function HowItWorksPage() {
             What you can hire for at launch.
           </h2>
           <p className="mt-3 text-lg text-ink-600">
-            We&apos;re starting with the five trades that cover ~80% of brownstone
+            We&apos;re starting with the five trades that cover about 80% of brownstone
             home maintenance.
           </p>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -114,7 +112,7 @@ export default function HowItWorksPage() {
 
       <section className="mx-auto max-w-4xl px-6 py-20 text-center">
         <h2 className="font-serif text-3xl font-semibold tracking-tight text-ink-900 md:text-4xl">
-          Ready to put trust back into hiring a pro?
+          Ready to put some trust back into hiring a pro?
         </h2>
         <p className="mt-3 text-lg text-ink-600">
           We&apos;re launching block by block, Brooklyn first.
@@ -124,7 +122,7 @@ export default function HowItWorksPage() {
             <Link href="/#waitlist">Join the waitlist</Link>
           </Button>
           <Button asChild variant="outline" size="xl">
-            <Link href="/for-tradespeople">I&apos;m a tradesperson</Link>
+            <Link href="/for-tradespeople">I work in the trades</Link>
           </Button>
         </div>
       </section>
@@ -159,9 +157,10 @@ function Step({
           {body}
         </p>
         {example && (
-          <p className="mt-3 rounded-xl border border-ink-200 bg-cream-100 p-4 text-sm text-ink-600">
-            {example}
-          </p>
+          <p
+            className="mt-3 rounded-xl border border-ink-200 bg-cream-100 p-4 text-sm text-ink-600"
+            dangerouslySetInnerHTML={{ __html: example }}
+          />
         )}
       </div>
     </li>

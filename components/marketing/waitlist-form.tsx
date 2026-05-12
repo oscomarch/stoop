@@ -74,7 +74,7 @@ export function WaitlistForm() {
         </h3>
         <p className="mt-2 text-ink-600">
           We&apos;ll email <strong>{state.email}</strong> when we&apos;re ready for{" "}
-          {role === "homeowner" ? "homeowners" : "tradespeople"} in your area.
+          {role === "homeowner" ? "homeowners" : "pros"} in your area.
         </p>
         <p className="mt-2 text-sm text-ink-500">
           Want to bump the line? Tell a neighbor.
@@ -95,7 +95,7 @@ export function WaitlistForm() {
           onClick={() => setRole("homeowner")}
         />
         <RolePill
-          label="I'm a tradesperson"
+          label="I work in the trades"
           active={role === "tradesperson"}
           onClick={() => setRole("tradesperson")}
         />
@@ -281,7 +281,7 @@ export function WaitlistSection() {
             is live in your neighborhood. Brooklyn first. The rest soon.
           </p>
           <p className="mt-4 text-base text-ink-600">
-            Tradespeople, we&apos;ll be in touch within days to do a quick verification call.
+            If you work in the trades, expect a call from us within a few days for a quick verification chat.
           </p>
         </div>
         <div className="lg:col-span-3">

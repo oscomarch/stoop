@@ -31,7 +31,7 @@ export function Hero() {
           </Badge>
 
           <h1 className="font-serif text-5xl font-semibold leading-[1.05] tracking-tight text-ink-900 text-balance md:text-7xl">
-            Find a tradesperson the way you&apos;d find a{" "}
+            Find a plumber like you&apos;d find a{" "}
             <span className="relative inline-block whitespace-nowrap">
               <span className="relative z-10">babysitter</span>
               <span
@@ -45,7 +45,7 @@ export function Hero() {
           <p className="mt-8 text-lg leading-relaxed text-ink-600 text-pretty md:text-xl">
             Stoop is the neighborhood marketplace for home services. Post a
             job, get bids from vetted pros on your block, pay safely through
-            escrow. Reviews from your actual neighbors — ranked by how close
+            escrow. Reviews come from your actual neighbors, ranked by how close
             they live to you.
           </p>
 
@@ -62,12 +62,12 @@ export function Hero() {
               size="xl"
               className="w-full sm:w-auto"
             >
-              <Link href="/for-tradespeople">I&apos;m a tradesperson</Link>
+              <Link href="/for-tradespeople">I work in the trades</Link>
             </Button>
           </div>
 
           <p className="mt-6 text-sm text-ink-500">
-            Free to homeowners. No spam, no auto-dialers. Tradespeople, no cold-lead fees.
+            Free for homeowners. No spam, no auto-dialers. For pros, no cold-lead fees.
           </p>
         </div>
       </div>

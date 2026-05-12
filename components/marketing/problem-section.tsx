@@ -3,12 +3,12 @@ import { AlertTriangle } from "lucide-react";
 const problems = [
   {
     quote:
-      "I posted on Facebook Marketplace for a leaky sink. Six guys messaged me. Three didn't show. One showed and asked for cash up-front.",
+      "I posted on Facebook Marketplace for a leaky sink. Six guys messaged me. Three didn't show. One showed up and asked for cash up front.",
     by: "Park Slope homeowner",
   },
   {
     quote:
-      "Yelp wanted $2,400/month for leads. Half of them were spam. I quit and went back to door hangers.",
+      "Yelp wanted $2,400 a month for leads. Half of them were spam. I quit and went back to door hangers.",
     by: "Boerum Hill plumber",
   },
   {
@@ -28,11 +28,12 @@ export function ProblemSection() {
             The current state of home services
           </div>
           <h2 className="mt-6 font-serif text-4xl font-semibold tracking-tight text-balance md:text-5xl">
-            Trust is the broken part.
+            Trust is the part that&apos;s broken.
           </h2>
           <p className="mt-5 text-lg text-cream-200 text-pretty">
-            Homeowners are gambling. Tradespeople are paying 20% of revenue for cold leads.
-            Everyone&apos;s losing — except the platforms that monetize the confusion.
+            Homeowners are gambling. Pros are paying 20% of their revenue for
+            cold leads that ghost them. Everyone&apos;s losing, except the
+            platforms that monetize the confusion.
           </p>
         </div>
 
@@ -45,7 +46,7 @@ export function ProblemSection() {
               <blockquote className="text-cream-100">
                 <p className="text-base leading-relaxed">&ldquo;{p.quote}&rdquo;</p>
               </blockquote>
-              <figcaption className="mt-4 text-sm text-cream-300">— {p.by}</figcaption>
+              <figcaption className="mt-4 text-sm text-cream-300">{p.by}</figcaption>
             </figure>
           ))}
         </div>

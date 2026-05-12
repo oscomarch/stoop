@@ -9,7 +9,7 @@ const neighborReviews = [
     distance: "2 doors down",
     stars: 5,
     quote: "Marco fixed our radiator on a Sunday. Honest, fast, clean. We have his number on the fridge now.",
-    pro: "Marco — Plumbing",
+    pro: "Marco's Plumbing",
   },
   {
     name: "Devon R.",
@@ -17,7 +17,7 @@ const neighborReviews = [
     distance: "1 block",
     stars: 5,
     quote: "Patched a ceiling leak we'd been ignoring for a year. Showed me what he was doing the whole time.",
-    pro: "Marco — Plumbing",
+    pro: "Marco's Plumbing",
   },
   {
     name: "Aliyah J.",
@@ -25,7 +25,7 @@ const neighborReviews = [
     distance: "3 blocks",
     stars: 4,
     quote: "Re-did our bathroom fixtures. Solid work, came back to fix a small wobble without charging.",
-    pro: "Marco — Plumbing",
+    pro: "Marco's Plumbing",
   },
 ];
 
@@ -42,13 +42,14 @@ export function NeighborTrustSection() {
             <span className="italic">two doors down</span> hits different.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-ink-600 text-pretty">
-            Every Stoop review is anchored to the reviewer&apos;s street. When you
+            Every Stoop review is tied to the reviewer&apos;s street. When you
             look up a plumber, we show you what people on{" "}
-            <em>your block</em> actually said — ranked by how close they live.
+            <em>your block</em> actually said, ranked by how close they live to you.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-ink-600 text-pretty">
-            That&apos;s the moat. Yelp shows you a random star average. Google shows you
-            paid placements. Stoop shows you the truth your neighbors already know.
+            That&apos;s the moat. Yelp gives you a random star average. Google
+            shows you whoever paid the most. Stoop shows you the truth your
+            neighbors already know.
           </p>
 
           <ul className="mt-8 space-y-3 text-base text-ink-700">
@@ -58,7 +59,7 @@ export function NeighborTrustSection() {
             </li>
             <li className="flex items-start gap-3">
               <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-terracotta-600" />
-              Verified pros only — license + insurance checked
+              Verified pros only. License and insurance checked.
             </li>
             <li className="flex items-start gap-3">
               <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-terracotta-600" />

@@ -1,5 +1,5 @@
 /**
- * Stoop product constants — single source of truth for trades, neighborhoods,
+ * Stoop product constants. Single source of truth for trades, neighborhoods,
  * and copy strings used in multiple places. Keep this small and stable.
  */
 
@@ -7,7 +7,7 @@ export const BRAND = {
   name: "Stoop",
   tagline: "Ask your stoop.",
   pitch:
-    "The neighborhood marketplace for home services — built for Brooklyn brownstones, then everywhere.",
+    "The neighborhood marketplace for home services. Built for Brooklyn brownstones, then everywhere.",
   email: "hello@stoop.app",
   twitter: "@stoopapp",
 } as const;
@@ -30,7 +30,7 @@ export const TRADES: ReadonlyArray<{
     id: "handyman",
     label: "Handyman",
     emoji: "🔨",
-    description: "Mounting, assembly, small repairs — the everyday stuff.",
+    description: "Mounting, assembly, small repairs. The everyday stuff.",
     examples: ["TV mounting", "IKEA assembly", "Drilling", "Curtain rods"],
   },
   {
@@ -44,7 +44,7 @@ export const TRADES: ReadonlyArray<{
     id: "electrical",
     label: "Electrical",
     emoji: "💡",
-    description: "Outlets, fixtures, switches — anything with a wire.",
+    description: "Outlets, fixtures, switches. Anything with a wire.",
     examples: ["New outlet", "Ceiling fan", "Smart switch", "Light fixture"],
   },
   {

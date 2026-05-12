@@ -24,7 +24,7 @@ export async function requireUser(): Promise<User> {
   const [row] = await db.select().from(users).where(eq(users.id, user.id)).limit(1);
 
   if (!row) {
-    // Auth session exists but no application row — likely a stale auth row.
+    // Auth session exists but no application row, likely a stale auth row.
     // Send them to a flow that re-creates the profile.
     redirect("/sign-in?error=profile_missing");
   }

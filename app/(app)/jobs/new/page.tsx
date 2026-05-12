@@ -25,8 +25,8 @@ export default async function NewJobPage({
           Post a job.
         </h1>
         <p className="mt-2 text-ink-600">
-          We&apos;ll show it to verified pros near you. Most jobs get 3–5 bids
-          within a day.
+          We&apos;ll show it to verified pros near you. Most jobs see 3 to 5
+          bids within a day.
         </p>
       </header>
       <PostJobForm initialTrade={initialTrade as TradeId} />

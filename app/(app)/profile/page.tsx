@@ -46,7 +46,7 @@ export default async function ProfilePage() {
 
       <Card>
         <CardContent className="space-y-4 p-6">
-          <Row label="Name" value={user.name ?? "—"} />
+          <Row label="Name" value={user.name ?? "Not set"} />
           <Row label="Email" value={user.email} />
           <Row
             label="Role"
@@ -66,7 +66,7 @@ export default async function ProfilePage() {
             <h2 className="font-serif text-xl font-semibold text-ink-900">
               Homeowner details
             </h2>
-            <Row label="Neighborhood" value={homeowner.neighborhood ?? "—"} />
+            <Row label="Neighborhood" value={homeowner.neighborhood ?? "Not set"} />
             <Row label="Address" value={homeowner.addressLine ?? "Not set"} />
           </CardContent>
         </Card>
@@ -78,7 +78,7 @@ export default async function ProfilePage() {
             <h2 className="font-serif text-xl font-semibold text-ink-900">
               Tradesperson details
             </h2>
-            <Row label="Business" value={tradesperson.businessName ?? "—"} />
+            <Row label="Business" value={tradesperson.businessName ?? "Not set"} />
             <Row
               label="Trades"
               value={

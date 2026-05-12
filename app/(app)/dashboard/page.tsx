@@ -155,7 +155,7 @@ async function TradespersonDashboard({
           <Card className="mt-4">
             <CardContent className="flex flex-col items-center gap-3 py-10 text-center">
               <Inbox className="h-8 w-8 text-ink-400" />
-              <p className="text-ink-700">No bids yet — head to the jobs board.</p>
+              <p className="text-ink-700">No bids yet. Head to the jobs board.</p>
               <Button asChild size="sm">
                 <Link href="/jobs">Browse jobs</Link>
               </Button>

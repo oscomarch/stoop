@@ -7,17 +7,17 @@ const benefits = [
   {
     icon: Wallet,
     title: "Free leads, not pay-per-cold-call",
-    body: "Bid on jobs in your area for free. We take a small cut only when the job actually closes — and only from work the platform helped you win.",
+    body: "Bid on jobs in your area for free. We take a small cut when the job actually closes, and only from work the platform helped you win.",
   },
   {
     icon: FileText,
-    title: "Invoicing & receipts, built in",
+    title: "Invoicing and receipts, built in",
     body: "Stop juggling spreadsheets and PDF invoices. Every job comes with a clean record your accountant will love.",
   },
   {
     icon: Calendar,
-    title: "Calendar that fits your day",
-    body: "See all your jobs, bids, and confirmed appointments in one place. SMS reminders to clients are automatic.",
+    title: "A calendar that fits your day",
+    body: "All your jobs, bids, and confirmed appointments in one place. SMS reminders to clients go out automatically.",
   },
   {
     icon: ShieldCheck,
@@ -33,15 +33,15 @@ export function TradespersonCta() {
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-widest text-cream-200">
-              For tradespeople
+              For pros
             </p>
             <h2 className="mt-3 font-serif text-4xl font-semibold tracking-tight text-cream-50 text-balance md:text-5xl">
-              The platform that doesn&apos;t take 30% and call it a feature.
+              A platform that doesn&apos;t take 30% and call it a feature.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-cream-100 text-pretty">
-              Stoop is built for working pros. Find clients in your neighborhood,
-              get paid through escrow, run your business from one place. No cold-lead
-              fees. No race-to-the-bottom auctions.
+              Stoop is built for working pros. Find clients on your block, get
+              paid through escrow, run your business from one place. No
+              cold-lead fees. No race-to-the-bottom auctions.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">

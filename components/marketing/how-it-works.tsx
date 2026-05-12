@@ -2,22 +2,22 @@ const steps = [
   {
     number: "01",
     title: "Post the job",
-    body: "Snap a photo, describe what's broken, set a budget. Takes 60 seconds.",
+    body: "Snap a photo, say what's broken, set a budget. Takes about a minute.",
   },
   {
     number: "02",
     title: "Get bids from your block",
-    body: "Vetted pros nearby bid on your job. See their work, their license, their actual neighbors' reviews.",
+    body: "Vetted pros nearby send you a price. You see their work, their license, and reviews from your actual neighbors.",
   },
   {
     number: "03",
     title: "Pay through escrow",
-    body: "Your money is held by Stoop until the work is done. No more cash up-front. No more surprise charges.",
+    body: "Your money sits with Stoop until the work is done. No more cash up front. No more surprise charges at the end.",
   },
   {
     number: "04",
-    title: "Leave a review your neighbors will see",
-    body: "Your review is anchored to your block. When the people down the street look for a pro, your honest take is what they see first.",
+    title: "Leave a review your block will see",
+    body: "Your review gets anchored to your address. When the people two doors down look up that pro, your take is the first thing they read.",
   },
 ];
 

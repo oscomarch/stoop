@@ -23,7 +23,7 @@ export async function sendWaitlistConfirmation({
   const subject =
     role === "homeowner"
       ? "You're on the Stoop waitlist"
-      : "Welcome — let's get you verified for Stoop";
+      : "Welcome to Stoop. Let's get you verified.";
 
   const html =
     role === "homeowner"
@@ -56,7 +56,7 @@ function renderHomeownerHtml({ neighborhood }: { neighborhood?: string | null })
     We&rsquo;ll email you the moment Stoop opens up in your area.</p>
     <p>In the meantime: tell a neighbor. We move faster when blocks come together.</p>
     <p style="color:#686860;font-size:14px;margin-top:32px;">
-      &mdash; The Stoop team
+      The Stoop team
     </p>
   `);
 }
@@ -76,7 +76,7 @@ function renderHomeownerText({
     ``,
     `In the meantime: tell a neighbor. We move faster when blocks come together.`,
     ``,
-    `— The Stoop team`,
+    `The Stoop team`,
   ].join("\n");
 }
 
@@ -93,8 +93,8 @@ function renderTradespersonHtml({
     <p>Thanks for applying to be a Stoop pro${where}.</p>
     <p>A real person from our team will reach out within a few days to verify your
     license, insurance, and business details. Once you&rsquo;re verified, you can
-    start bidding on jobs in your area &mdash; for free.</p>
-    <p>If you want to fast-track, reply to this email with:</p>
+    start bidding on jobs in your area for free.</p>
+    <p>Want to fast-track? Reply to this email with:</p>
     <ul>
       <li>Your business name and primary trade(s)</li>
       <li>License # and issuing state</li>
@@ -102,7 +102,7 @@ function renderTradespersonHtml({
       <li>A photo or two of recent work</li>
     </ul>
     <p style="color:#686860;font-size:14px;margin-top:32px;">
-      &mdash; The Stoop team
+      The Stoop team
     </p>
   `);
 }
@@ -119,7 +119,7 @@ function renderTradespersonText({
     `Thanks for applying to be a Stoop pro${where}.`,
     `A real person from our team will reach out within a few days to verify your`,
     `license, insurance, and business details. Once you're verified, you can`,
-    `start bidding on jobs in your area — for free.`,
+    `start bidding on jobs in your area for free.`,
     ``,
     `Want to fast-track? Reply with:`,
     `  - Business name and primary trade(s)`,
@@ -127,7 +127,7 @@ function renderTradespersonText({
     `  - Insurance carrier`,
     `  - A photo or two of recent work`,
     ``,
-    `— The Stoop team`,
+    `The Stoop team`,
   ].join("\n");
 }
 

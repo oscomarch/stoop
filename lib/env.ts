@@ -23,15 +23,15 @@ function optional(name: string, fallback = ""): string {
 }
 
 export const env = {
-  /** Public Supabase URL — safe to expose in the browser */
+  /** Public Supabase URL. Safe to expose in the browser. */
   get NEXT_PUBLIC_SUPABASE_URL() {
     return required("NEXT_PUBLIC_SUPABASE_URL");
   },
-  /** Public Supabase anon key — safe to expose in the browser */
+  /** Public Supabase anon key. Safe to expose in the browser. */
   get NEXT_PUBLIC_SUPABASE_ANON_KEY() {
     return required("NEXT_PUBLIC_SUPABASE_ANON_KEY");
   },
-  /** Service-role Supabase key — server-only, never expose */
+  /** Service-role Supabase key. Server-only, never expose. */
   get SUPABASE_SERVICE_ROLE_KEY() {
     return required("SUPABASE_SERVICE_ROLE_KEY");
   },
@@ -47,7 +47,7 @@ export const env = {
   get EMAIL_FROM() {
     return optional("EMAIL_FROM", "Stoop <hello@stoop.app>");
   },
-  /** Public site URL — used in emails and OG */
+  /** Public site URL. Used in emails and OG. */
   get NEXT_PUBLIC_SITE_URL() {
     return optional("NEXT_PUBLIC_SITE_URL", "http://localhost:3000");
   },

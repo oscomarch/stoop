@@ -22,24 +22,25 @@ export default function ManifestoPage() {
 
         <div className="prose prose-lg mt-12 space-y-6 text-lg leading-relaxed text-ink-700">
           <p className="text-pretty">
-            When you need a babysitter, you don&apos;t open Yelp. You ask the family two
-            doors down. You ask the parent who&apos;s been on the block longer than you
-            have. You trust them because they have something to lose if they steer you wrong.
+            When you need a babysitter, you don&apos;t open Yelp. You ask the
+            family two doors down. You ask the parent who&apos;s been on the
+            block longer than you have. You trust them because they have
+            something to lose if they steer you wrong.
           </p>
 
           <p className="text-pretty">
-            That&apos;s how trust used to work for everything in your home — your
+            That&apos;s how trust used to work for everything in your home: your
             plumber, your electrician, the guy who fixed the boiler. It worked
-            because density was the trust mechanism. You couldn&apos;t hide on a block
-            of 30 households.
+            because density was the trust mechanism. You couldn&apos;t hide on
+            a block of 30 households.
           </p>
 
           <p className="text-pretty">
-            The internet broke that. Yelp scraped your neighbors&apos; reviews and
-            buried them under paid placements. Angi sold your job to four
+            The internet broke that. Yelp scraped your neighbors&apos; reviews
+            and buried them under paid placements. Angi sold your job to four
             strangers for $87 a lead. Facebook Marketplace turned hiring a pro
-            into a coin flip. Trust got abstracted into a five-star average and a
-            blurry headshot.
+            into a coin flip. Trust got abstracted into a five-star average and
+            a blurry headshot.
           </p>
 
           <h2 className="font-serif text-3xl font-semibold tracking-tight text-ink-900 md:text-4xl">
@@ -47,19 +48,20 @@ export default function ManifestoPage() {
           </h2>
 
           <p className="text-pretty">
-            Stoop is a marketplace that pretends it isn&apos;t one. Every job goes to
-            the pros nearest you. Every review is anchored to the reviewer&apos;s
-            street, ranked by physical distance. Every payment is held in escrow
-            until the work is done. The platform exists to make trust portable —
-            from your block, through your phone, to the right person at the right
-            time.
+            Stoop is a marketplace that pretends it isn&apos;t one. Every job
+            goes to the pros nearest you. Every review is tied to the
+            reviewer&apos;s street, ranked by physical distance. Every payment
+            is held in escrow until the work is done. The platform exists to
+            make trust portable: from your block, through your phone, to the
+            right person at the right time.
           </p>
 
           <p className="text-pretty">
-            We&apos;re starting in Brooklyn brownstone neighborhoods because they&apos;re
-            the most ideal lab on Earth for this. High homeownership. People know
-            their neighbors. People talk on the stoop. Once it works here, it works
-            anywhere there&apos;s a neighborhood worth living in.
+            We&apos;re starting in Brooklyn brownstone neighborhoods because
+            they&apos;re the most ideal lab on earth for this. High
+            homeownership. People know their neighbors. People talk on the
+            stoop. Once it works here, it works anywhere there&apos;s a
+            neighborhood worth living in.
           </p>
 
           <h2 className="font-serif text-3xl font-semibold tracking-tight text-ink-900 md:text-4xl">
@@ -68,35 +70,35 @@ export default function ManifestoPage() {
 
           <ul className="space-y-3 text-pretty">
             <li>
-              <strong>To homeowners:</strong> We will never sell your job to four
-              strangers. We will never run a paid placement that pushes a worse pro
-              above a better one. If a pro screws up, the money is still with us.
+              <strong>To homeowners:</strong> we&apos;ll never sell your job to
+              four strangers. We&apos;ll never run a paid placement that pushes
+              a worse pro above a better one. If a pro screws up, the money is
+              still with us.
             </li>
             <li>
-              <strong>To tradespeople:</strong> We will never charge you for a cold
-              lead. We will never let a homeowner ghost you on payment. We will
-              build the back-office tools that the lead-gen platforms refuse to.
+              <strong>To pros:</strong> we&apos;ll never charge you for a cold
+              lead. We&apos;ll never let a homeowner ghost you on payment.
+              We&apos;ll build the back-office tools the lead-gen platforms
+              refuse to.
             </li>
             <li>
-              <strong>To both:</strong> We will keep the platform simple, the
-              pricing predictable, and the reviews honest. If we drift from that,
-              you have the right to call us on it. And we expect you will.
+              <strong>To both:</strong> we&apos;ll keep the platform simple,
+              the pricing predictable, and the reviews honest. If we drift from
+              that, you have the right to call us on it. And we expect you will.
             </li>
           </ul>
 
           <p className="text-pretty">
-            Stoop is a small bet on something old: that the people who live near
-            you are the best authority on who to trust with your home.
+            Stoop is a small bet on something old: that the people who live
+            near you are the best authority on who to trust with your home.
           </p>
 
-          <p className="text-pretty">
-            Welcome to the block.
-          </p>
+          <p className="text-pretty">Welcome to the block.</p>
         </div>
 
         <div className="mt-16 border-t border-ink-200 pt-8">
           <p className="text-sm text-ink-500">
-            — The Stoop founders. Brooklyn, NY.
+            The Stoop founders. Brooklyn, NY.
           </p>
         </div>
 

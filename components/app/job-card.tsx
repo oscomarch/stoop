@@ -54,7 +54,7 @@ export function JobCard({ job }: { job: Job }) {
             </span>
             {job.budgetLow && job.budgetHigh && (
               <span className="ml-auto font-medium text-ink-700">
-                ${job.budgetLow} – ${job.budgetHigh}
+                ${job.budgetLow} to ${job.budgetHigh}
               </span>
             )}
           </div>

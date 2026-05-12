@@ -13,9 +13,9 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = {
-  title: "For tradespeople",
+  title: "For pros",
   description:
-    "Stoop is the no-cold-lead-fee platform for working pros in Brooklyn. Bid for free, get paid through escrow, and run your business from one place.",
+    "Stoop is the no-cold-lead-fee platform for working pros in Brooklyn. Bid for free, get paid through escrow, run your business from one place.",
 };
 
 const features = [
@@ -31,7 +31,7 @@ const features = [
   },
   {
     icon: FileText,
-    title: "Invoices & receipts done.",
+    title: "Invoices and receipts, done.",
     body: "Every booked job auto-generates a clean invoice with your business name on it. CSV export for your accountant.",
   },
   {
@@ -42,7 +42,7 @@ const features = [
   {
     icon: MessageSquare,
     title: "Built-in messaging.",
-    body: "No more giving out your personal cell. Stoop messaging keeps your number private and saves a full record.",
+    body: "No more handing out your personal cell. Stoop messaging keeps your number private and saves a full record of every conversation.",
   },
   {
     icon: CreditCard,
@@ -56,10 +56,10 @@ const pricing = [
     label: "Per booked job",
     value: "12%",
     description:
-      "Charged to you only on jobs the platform helped you win. No fees on repeat business with the same customer after the first job.",
+      "Charged only on jobs the platform helped you win. No fees on repeat business with the same customer after the first job.",
   },
   {
-    label: "Listing & bidding",
+    label: "Listing and bidding",
     value: "Free",
     description: "Browse jobs nearby and submit unlimited bids at no cost.",
   },
@@ -73,7 +73,7 @@ const pricing = [
     label: "Subscription",
     value: "$0",
     description:
-      "No monthly subscription. Ever. The 12% is the only number you have to remember.",
+      "No monthly subscription. Ever. The 12% is the only number you need to remember.",
   },
 ];
 
@@ -85,19 +85,19 @@ export default function ForTradespeoplePage() {
           For working pros
         </Badge>
         <h1 className="font-serif text-5xl font-semibold tracking-tight text-ink-900 text-balance md:text-6xl">
-          The platform that doesn&apos;t monetize your confusion.
+          A platform that doesn&apos;t monetize your confusion.
         </h1>
         <p className="mt-6 text-xl leading-relaxed text-ink-600 text-pretty">
           You shouldn&apos;t have to pay $40 a lead to talk to someone who never
-          answers. You shouldn&apos;t have to chase a customer for payment three weeks
-          after the job is done. Stoop fixes both.
+          picks up. You shouldn&apos;t have to chase a customer for payment three
+          weeks after the job is done. Stoop fixes both.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <Button asChild size="xl">
             <Link href="/#waitlist">Apply to join</Link>
           </Button>
           <Button asChild variant="outline" size="xl">
-            <a href="mailto:hello@stoop.app?subject=Tradesperson%20inquiry">
+            <a href="mailto:hello@stoop.app?subject=Pro%20inquiry">
               Talk to a human
             </a>
           </Button>
@@ -111,8 +111,8 @@ export default function ForTradespeoplePage() {
           </h2>
           <p className="mt-3 max-w-2xl text-lg text-ink-600">
             Most lead-gen platforms drop a job on your desk and walk away. Stoop
-            sticks around — through messaging, scheduling, payment, and the
-            paperwork after.
+            sticks around. Messaging, scheduling, payment, and the paperwork
+            after, all in one tool.
           </p>
 
           <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -175,8 +175,8 @@ export default function ForTradespeoplePage() {
           <p className="mt-4 text-lg leading-relaxed text-cream-100">
             Every pro on Stoop is verified before they can bid. We check your
             license number, your insurance carrier, your business name, and run
-            an identity check. The badge isn&apos;t cosmetic — it&apos;s the platform&apos;s
-            backbone.
+            an identity check. The badge isn&apos;t cosmetic. It&apos;s the
+            backbone of the platform.
           </p>
           <div className="mt-8">
             <Button

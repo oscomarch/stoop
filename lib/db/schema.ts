@@ -126,7 +126,7 @@ export const homeownerProfiles = pgTable("homeowner_profiles", {
     .references(() => users.id, { onDelete: "cascade" }),
   addressLine: text("address_line"),
   neighborhood: text("neighborhood"),
-  /** PostGIS point — `ST_SetSRID(ST_MakePoint(lng, lat), 4326)` */
+  /** PostGIS point. Build with `ST_SetSRID(ST_MakePoint(lng, lat), 4326)`. */
   location: geography("location"),
   createdAt: timestamp("created_at", { withTimezone: true })
     .notNull()
@@ -231,7 +231,7 @@ export const bids = pgTable(
 );
 
 /* -------------------------------------------------------------------------- */
-/*  Reviews — the neighbor-trust primitive                                    */
+/*  Reviews. The neighbor-trust feature.                                       */
 /* -------------------------------------------------------------------------- */
 
 /**
@@ -260,7 +260,7 @@ export const reviews = pgTable(
     jobId: uuid("job_id").references(() => jobs.id, {
       onDelete: "set null",
     }),
-    /** 1–5 stars. */
+    /** 1 to 5 stars. */
     rating: integer("rating").notNull(),
     comment: text("comment"),
     /** Reviewer's geographic position when leaving the review. */

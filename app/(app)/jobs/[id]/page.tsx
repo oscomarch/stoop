@@ -71,7 +71,7 @@ export default async function JobDetailPage({
           </span>
           {job.budgetLow && job.budgetHigh && (
             <span className="font-medium text-ink-700">
-              Budget: ${job.budgetLow} – ${job.budgetHigh}
+              Budget: ${job.budgetLow} to ${job.budgetHigh}
             </span>
           )}
         </div>

@@ -9,10 +9,11 @@ export function TradesGrid() {
             What we cover at launch
           </p>
           <h2 className="mt-3 font-serif text-4xl font-semibold tracking-tight text-ink-900 text-balance md:text-5xl">
-            Five trades. Eighty percent of what your home needs.
+            Five trades to start. About 80% of what your home actually needs.
           </h2>
           <p className="mt-5 text-lg text-ink-600 text-pretty">
-            We&apos;re starting focused. More trades will roll out as we hit density in each.
+            We&apos;re keeping the focus narrow. More trades roll out once we hit
+            density in each one.
           </p>
         </div>
 

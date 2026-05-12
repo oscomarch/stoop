@@ -20,14 +20,13 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL("https://stoop.app"),
   title: {
-    default: "Stoop — Ask your stoop.",
+    default: "Stoop · Ask your stoop.",
     template: "%s · Stoop",
   },
   description:
-    "Stoop is the neighborhood marketplace for home services. Find a vetted tradesperson the way you'd find a babysitter — through your block. Built for Brooklyn brownstones, then everywhere.",
+    "Stoop is the neighborhood marketplace for home services. Find a vetted plumber, electrician, or handyman through your block. Built for Brooklyn brownstones, then everywhere.",
   keywords: [
     "home services",
-    "tradesperson",
     "handyman",
     "plumber",
     "electrician",
@@ -37,7 +36,7 @@ export const metadata: Metadata = {
     "escrow payments",
   ],
   openGraph: {
-    title: "Stoop — Ask your stoop.",
+    title: "Stoop · Ask your stoop.",
     description:
       "The neighborhood marketplace for home services. Built for Brooklyn brownstones.",
     url: "https://stoop.app",
@@ -47,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stoop — Ask your stoop.",
+    title: "Stoop · Ask your stoop.",
     description:
       "The neighborhood marketplace for home services. Built for Brooklyn brownstones.",
   },

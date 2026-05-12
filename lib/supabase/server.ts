@@ -24,7 +24,7 @@ export async function createClient() {
               cookieStore.set(name, value, options);
             });
           } catch {
-            // Called from a Server Component during render —
+            // Called from a Server Component during render.
             // mutating cookies is not allowed there. Safe to ignore;
             // the middleware (or a parent Server Action) will refresh.
           }

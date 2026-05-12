@@ -72,7 +72,7 @@ export async function signUp(
   }
 
   // Create the application-level user row. If email confirmations are ON in
-  // Supabase, the row exists in `auth.users` but has no session yet — we still
+  // Supabase, the row exists in `auth.users` but has no session yet. We still
   // want to be able to associate the role with the account when the user
   // confirms, so we write the application row eagerly.
   try {

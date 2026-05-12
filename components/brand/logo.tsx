@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 /**
- * The Stoop wordmark. A stylized "S" silhouette inspired by a brownstone stoop —
+ * The Stoop wordmark. A stylized "S" silhouette inspired by a brownstone stoop,
  * two angled steps leading up. Pairs with the wordmark in serif.
  */
 export function Logo({

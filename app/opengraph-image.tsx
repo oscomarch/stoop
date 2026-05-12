@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Stoop — the neighborhood marketplace for home services";
+export const alt = "Stoop. The neighborhood marketplace for home services.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
