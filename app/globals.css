@@ -1,26 +1,120 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Stoop brand palette - warm brownstone */
+  /* Terracotta (primary): the brick of a Brooklyn brownstone */
+  --color-terracotta-50: #fdf5f1;
+  --color-terracotta-100: #fbe8df;
+  --color-terracotta-200: #f5cdbb;
+  --color-terracotta-300: #ecaa90;
+  --color-terracotta-400: #e08568;
+  --color-terracotta-500: #d3674a;
+  --color-terracotta-600: #c24f37;
+  --color-terracotta-700: #a23e2c;
+  --color-terracotta-800: #82342a;
+  --color-terracotta-900: #6b2e26;
+  --color-terracotta-950: #3a1612;
+
+  /* Cream: limestone, warm neutral background */
+  --color-cream-50: #fdfaf5;
+  --color-cream-100: #f9f1e3;
+  --color-cream-200: #f3e3c5;
+  --color-cream-300: #ead0a0;
+  --color-cream-400: #ddb877;
+  --color-cream-500: #cfa056;
+
+  /* Ink: deep ink for text and night */
+  --color-ink-50: #f7f7f6;
+  --color-ink-100: #e6e6e3;
+  --color-ink-200: #ccccc7;
+  --color-ink-300: #a8a8a0;
+  --color-ink-400: #84847a;
+  --color-ink-500: #686860;
+  --color-ink-600: #51514b;
+  --color-ink-700: #3f3f3b;
+  --color-ink-800: #2a2a27;
+  --color-ink-900: #1a1a18;
+  --color-ink-950: #0e0e0d;
+
+  /* Moss accent (used sparingly for "verified" / "trusted") */
+  --color-moss-500: #6b8e5a;
+  --color-moss-600: #557547;
+
+  /* Semantic tokens */
+  --color-background: var(--color-cream-50);
+  --color-foreground: var(--color-ink-900);
+  --color-muted: var(--color-cream-100);
+  --color-muted-foreground: var(--color-ink-500);
+  --color-border: var(--color-ink-200);
+  --color-input: var(--color-ink-200);
+  --color-ring: var(--color-terracotta-500);
+  --color-primary: var(--color-terracotta-600);
+  --color-primary-foreground: var(--color-cream-50);
+  --color-secondary: var(--color-cream-100);
+  --color-secondary-foreground: var(--color-ink-900);
+  --color-destructive: #b91c1c;
+  --color-destructive-foreground: var(--color-cream-50);
+
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Fraunces", "Times New Roman", Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas,
+    monospace;
+
+  --radius-xs: 0.25rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E");
+  }
 }
