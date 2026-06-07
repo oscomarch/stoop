@@ -6,15 +6,14 @@ import { z } from "zod";
 
 import { createClient } from "@/lib/supabase/server";
 import { db } from "@/lib/db";
-import { users, homeownerProfiles, tradespersonProfiles } from "@/lib/db/schema";
+import { users } from "@/lib/db/schema";
 import { env } from "@/lib/env";
 
 const signUpSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8, "Password must be at least 8 characters."),
   name: z.string().min(1, "Tell us your name."),
-  role: z.enum(["homeowner", "tradesperson"]),
-  neighborhood: z.string().optional(),
+  role: z.enum(["homeowner", "contractor"]),
 });
 
 const signInSchema = z.object({
@@ -40,7 +39,6 @@ export async function signUp(
     password: formData.get("password"),
     name: formData.get("name"),
     role: formData.get("role"),
-    neighborhood: formData.get("neighborhood") || undefined,
   });
 
   if (!parsed.success) {
@@ -72,27 +70,19 @@ export async function signUp(
   }
 
   // Create the application-level user row. If email confirmations are ON in
-  // Supabase, the row exists in `auth.users` but has no session yet. We still
-  // want to be able to associate the role with the account when the user
-  // confirms, so we write the application row eagerly.
+  // Supabase, the row exists in `auth.users` but has no session yet. We write
+  // the application row eagerly so the role is associated with the account.
+  // The contractor_profiles row is created later, during onboarding.
   try {
-    await db.insert(users).values({
-      id: data.user.id,
-      email: parsed.data.email,
-      name: parsed.data.name,
-      role: parsed.data.role,
-    });
-
-    if (parsed.data.role === "homeowner") {
-      await db.insert(homeownerProfiles).values({
-        userId: data.user.id,
-        neighborhood: parsed.data.neighborhood ?? null,
-      });
-    } else {
-      await db.insert(tradespersonProfiles).values({
-        userId: data.user.id,
-      });
-    }
+    await db
+      .insert(users)
+      .values({
+        id: data.user.id,
+        email: parsed.data.email,
+        name: parsed.data.name,
+        role: parsed.data.role,
+      })
+      .onConflictDoNothing({ target: users.id });
   } catch (err) {
     console.error("[signUp] DB write failed:", err);
     // Don't block the signup flow; we can backfill via the callback if needed.

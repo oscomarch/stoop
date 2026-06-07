@@ -11,7 +11,9 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "db:apply": "node scripts/apply-sql.mjs",
+    "db:inspect": "node scripts/inspect-db.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

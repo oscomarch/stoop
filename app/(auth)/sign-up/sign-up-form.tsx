@@ -11,7 +11,7 @@ import { BROOKLYN_NEIGHBORHOODS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { signUp, type SignUpState } from "../actions";
 
-type Role = "homeowner" | "tradesperson";
+type Role = "homeowner" | "contractor";
 
 export function SignUpForm({ initialRole }: { initialRole: Role }) {
   const [role, setRole] = React.useState<Role>(initialRole);
@@ -31,9 +31,9 @@ export function SignUpForm({ initialRole }: { initialRole: Role }) {
           onClick={() => setRole("homeowner")}
         />
         <RolePill
-          label="Tradesperson"
-          active={role === "tradesperson"}
-          onClick={() => setRole("tradesperson")}
+          label="Pro"
+          active={role === "contractor"}
+          onClick={() => setRole("contractor")}
         />
       </fieldset>
 

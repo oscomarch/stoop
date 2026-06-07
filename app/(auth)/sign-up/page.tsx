@@ -14,7 +14,8 @@ export default async function SignUpPage({
   searchParams: Promise<{ role?: string }>;
 }) {
   const { role } = await searchParams;
-  const initialRole = role === "tradesperson" ? "tradesperson" : "homeowner";
+  const initialRole =
+    role === "contractor" || role === "tradesperson" ? "contractor" : "homeowner";
 
   return (
     <>

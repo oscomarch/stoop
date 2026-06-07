@@ -36,7 +36,7 @@ export async function requireUser(): Promise<User> {
  * Like `requireUser` but only allows a specific role.
  */
 export async function requireRole(
-  role: "homeowner" | "tradesperson"
+  role: "homeowner" | "contractor"
 ): Promise<User> {
   const u = await requireUser();
   if (u.role !== role) {

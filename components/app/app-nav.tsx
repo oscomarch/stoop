@@ -14,13 +14,13 @@ export function AppNav({ user }: { user: User }) {
     { href: "/profile", label: "Profile" },
   ];
 
-  const tradespersonLinks = [
+  const contractorLinks = [
     { href: "/dashboard", label: "Home" },
     { href: "/jobs", label: "Browse jobs" },
     { href: "/profile", label: "Profile" },
   ];
 
-  const links = user.role === "homeowner" ? homeownerLinks : tradespersonLinks;
+  const links = user.role === "contractor" ? contractorLinks : homeownerLinks;
 
   return (
     <header className="sticky top-0 z-30 w-full border-b border-cream-200 bg-cream-50/80 backdrop-blur-md">
@@ -39,8 +39,8 @@ export function AppNav({ user }: { user: User }) {
         </div>
 
         <div className="flex items-center gap-3">
-          <Badge variant={user.role === "tradesperson" ? "moss" : "default"}>
-            {user.role === "tradesperson" ? "Pro" : "Homeowner"}
+          <Badge variant={user.role === "contractor" ? "moss" : "default"}>
+            {user.role === "contractor" ? "Pro" : "Homeowner"}
           </Badge>
           <span className="hidden text-sm text-ink-600 sm:inline">
             {user.name ?? user.email}

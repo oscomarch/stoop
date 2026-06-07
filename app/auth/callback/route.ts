@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 
 import { createClient } from "@/lib/supabase/server";
 import { db } from "@/lib/db";
-import { users, homeownerProfiles, tradespersonProfiles } from "@/lib/db/schema";
+import { users } from "@/lib/db/schema";
 
 /**
  * Email confirmation callback for Supabase Auth.
@@ -29,33 +29,26 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  // Backfill the application user/profile rows if signUp() couldn't write them
-  // (e.g., the DB was down during signup). Idempotent.
+  // Backfill the application user row if signUp() couldn't write it
+  // (e.g., the DB was down during signup). Idempotent. The contractor_profiles
+  // row is created later during onboarding.
   const meta = data.user.user_metadata as { name?: string; role?: string } | null;
-  const role = meta?.role === "tradesperson" ? "tradesperson" : "homeowner";
+  const role =
+    meta?.role === "contractor" || meta?.role === "tradesperson"
+      ? "contractor"
+      : "homeowner";
 
   try {
     await db
       .insert(users)
       .values({
         id: data.user.id,
-        email: data.user.email ?? "",
+        email: data.user.email ?? null,
         name: meta?.name ?? null,
         role,
+        emailVerified: true,
       })
       .onConflictDoNothing({ target: users.id });
-
-    if (role === "homeowner") {
-      await db
-        .insert(homeownerProfiles)
-        .values({ userId: data.user.id })
-        .onConflictDoNothing({ target: homeownerProfiles.userId });
-    } else {
-      await db
-        .insert(tradespersonProfiles)
-        .values({ userId: data.user.id })
-        .onConflictDoNothing({ target: tradespersonProfiles.userId });
-    }
   } catch (err) {
     console.error("[auth/callback] backfill failed:", err);
   }

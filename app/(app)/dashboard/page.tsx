@@ -1,241 +1,66 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, ClipboardList, Hammer, Inbox } from "lucide-react";
-import { desc, eq } from "drizzle-orm";
+import { ArrowRight } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { requireUser } from "@/lib/auth";
-import { db } from "@/lib/db";
-import { jobs, bids } from "@/lib/db/schema";
-import { TRADES } from "@/lib/constants";
-import { relativeTime } from "@/lib/utils";
-
-export const metadata: Metadata = {
-  title: "Dashboard",
-};
+import { Button } from "@/components/ui/button";
 
 export default async function DashboardPage() {
   const user = await requireUser();
-
-  if (user.role === "homeowner") {
-    return <HomeownerDashboard userId={user.id} userName={user.name} />;
-  }
-  return <TradespersonDashboard userId={user.id} userName={user.name} />;
-}
-
-async function HomeownerDashboard({
-  userId,
-  userName,
-}: {
-  userId: string;
-  userName: string | null;
-}) {
-  const recentJobs = await db
-    .select()
-    .from(jobs)
-    .where(eq(jobs.homeownerId, userId))
-    .orderBy(desc(jobs.createdAt))
-    .limit(5);
+  const isContractor = user.role === "contractor";
+  const firstName = (user.name ?? "").split(" ")[0] || "neighbor";
 
   return (
-    <div className="space-y-10">
-      <header className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-        <div>
-          <h1 className="font-serif text-3xl font-semibold tracking-tight text-ink-900">
-            Hey{userName ? `, ${userName.split(" ")[0]}` : ""}.
-          </h1>
-          <p className="mt-1 text-ink-600">
-            Got something around the house? Get bids from your block.
-          </p>
-        </div>
-        <Button asChild size="lg">
-          <Link href="/jobs/new">
-            Post a job
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Button>
-      </header>
+    <div className="space-y-8">
+      <div>
+        <h1 className="font-serif text-3xl font-semibold tracking-tight text-ink-900">
+          Hey {firstName}.
+        </h1>
+        <p className="mt-2 text-ink-600">
+          {isContractor
+            ? "Set up your profile so jobs near you start showing up."
+            : "Post a job and let a few local pros bid on it, blind."}
+        </p>
+      </div>
 
-      <section>
-        <h2 className="font-serif text-xl font-semibold text-ink-900">Quick start</h2>
-        <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-          {TRADES.map((t) => (
-            <li key={t.id}>
-              <Link
-                href={`/jobs/new?trade=${t.id}`}
-                className="flex h-full flex-col rounded-xl border border-ink-200 bg-cream-50 p-4 transition-all hover:border-terracotta-300 hover:shadow-sm"
-              >
-                <span className="text-2xl" aria-hidden>
-                  {t.emoji}
-                </span>
-                <p className="mt-3 font-medium text-ink-900">{t.label}</p>
-                <p className="mt-0.5 text-xs text-ink-500">Post a {t.label.toLowerCase()} job</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section>
-        <h2 className="font-serif text-xl font-semibold text-ink-900">Your recent jobs</h2>
-        {recentJobs.length === 0 ? (
-          <EmptyJobs />
+      <div className="grid gap-4 sm:grid-cols-2">
+        {isContractor ? (
+          <NextStep
+            href="/profile"
+            title="Finish your profile"
+            body="Add your trades, service area, and license so neighbors can trust you."
+          />
         ) : (
-          <ul className="mt-4 space-y-3">
-            {recentJobs.map((job) => (
-              <li key={job.id}>
-                <Card>
-                  <CardHeader className="pb-3">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <CardTitle>{job.title}</CardTitle>
-                        <CardDescription className="mt-1">
-                          {tradeLabel(job.trade)} ·{" "}
-                          {job.neighborhood ?? "Brooklyn"} ·{" "}
-                          {relativeTime(job.createdAt)}
-                        </CardDescription>
-                      </div>
-                      <StatusBadge status={job.status} />
-                    </div>
-                  </CardHeader>
-                </Card>
-              </li>
-            ))}
-          </ul>
+          <NextStep
+            href="/jobs/new"
+            title="Post a job"
+            body="Tell us what needs doing. Up to 5 local pros bid in the next 48 hours."
+          />
         )}
-      </section>
+        <NextStep
+          href={isContractor ? "/jobs" : "/dashboard"}
+          title={isContractor ? "Browse local jobs" : "How bidding works"}
+          body={
+            isContractor
+              ? "Jobs inside your radius, filtered to your trades. Bids stay blind."
+              : "Bids are hidden until the window closes, then you compare them side by side."
+          }
+        />
+      </div>
     </div>
   );
 }
 
-async function TradespersonDashboard({
-  userId,
-  userName,
-}: {
-  userId: string;
-  userName: string | null;
-}) {
-  const recentBids = await db
-    .select()
-    .from(bids)
-    .where(eq(bids.tradespersonId, userId))
-    .orderBy(desc(bids.createdAt))
-    .limit(5);
-
+function NextStep({ href, title, body }: { href: string; title: string; body: string }) {
   return (
-    <div className="space-y-10">
-      <header className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-        <div>
-          <h1 className="font-serif text-3xl font-semibold tracking-tight text-ink-900">
-            Hey{userName ? `, ${userName.split(" ")[0]}` : ""}.
-          </h1>
-          <p className="mt-1 text-ink-600">
-            New jobs come in every day. Bid early to stand out.
-          </p>
-        </div>
-        <Button asChild size="lg">
-          <Link href="/jobs">
-            Browse jobs
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Button>
-      </header>
-
-      <section className="grid gap-6 sm:grid-cols-3">
-        <StatCard icon={Inbox} label="Active bids" value={recentBids.filter((b) => b.status === "pending").length} />
-        <StatCard icon={Hammer} label="Jobs won" value={recentBids.filter((b) => b.status === "accepted").length} />
-        <StatCard icon={ClipboardList} label="Total submitted" value={recentBids.length} />
-      </section>
-
-      <section>
-        <h2 className="font-serif text-xl font-semibold text-ink-900">Recent bids</h2>
-        {recentBids.length === 0 ? (
-          <Card className="mt-4">
-            <CardContent className="flex flex-col items-center gap-3 py-10 text-center">
-              <Inbox className="h-8 w-8 text-ink-400" />
-              <p className="text-ink-700">No bids yet. Head to the jobs board.</p>
-              <Button asChild size="sm">
-                <Link href="/jobs">Browse jobs</Link>
-              </Button>
-            </CardContent>
-          </Card>
-        ) : (
-          <ul className="mt-4 space-y-3">
-            {recentBids.map((bid) => (
-              <li key={bid.id}>
-                <Card>
-                  <CardHeader className="pb-3">
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <CardTitle>Bid · ${bid.price}</CardTitle>
-                        <CardDescription className="mt-1">
-                          {relativeTime(bid.createdAt)}
-                          {bid.message ? ` · ${bid.message.slice(0, 80)}` : ""}
-                        </CardDescription>
-                      </div>
-                      <StatusBadge status={bid.status} />
-                    </div>
-                  </CardHeader>
-                </Card>
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
-    </div>
+    <Link
+      href={href}
+      className="group rounded-2xl border border-ink-200 bg-cream-50 p-6 shadow-sm transition-colors hover:border-terracotta-300"
+    >
+      <h2 className="flex items-center justify-between font-medium text-ink-900">
+        {title}
+        <ArrowRight className="h-4 w-4 text-ink-400 transition-transform group-hover:translate-x-0.5 group-hover:text-terracotta-600" />
+      </h2>
+      <p className="mt-2 text-sm text-ink-600">{body}</p>
+    </Link>
   );
-}
-
-function EmptyJobs() {
-  return (
-    <Card className="mt-4">
-      <CardContent className="flex flex-col items-center gap-3 py-10 text-center">
-        <ClipboardList className="h-8 w-8 text-ink-400" />
-        <p className="text-ink-700">No jobs yet. Let&apos;s fix that.</p>
-        <Button asChild size="sm">
-          <Link href="/jobs/new">Post your first job</Link>
-        </Button>
-      </CardContent>
-    </Card>
-  );
-}
-
-function StatCard({
-  icon: Icon,
-  label,
-  value,
-}: {
-  icon: React.ComponentType<{ className?: string }>;
-  label: string;
-  value: number;
-}) {
-  return (
-    <Card>
-      <CardContent className="flex items-center gap-4 p-6">
-        <div className="rounded-xl bg-terracotta-100 p-3 text-terracotta-700">
-          <Icon className="h-5 w-5" />
-        </div>
-        <div>
-          <p className="text-sm text-ink-500">{label}</p>
-          <p className="font-serif text-2xl font-semibold text-ink-900">{value}</p>
-        </div>
-      </CardContent>
-    </Card>
-  );
-}
-
-function StatusBadge({ status }: { status: string }) {
-  const variant =
-    status === "open" || status === "pending"
-      ? "default"
-      : status === "accepted" || status === "completed" || status === "awarded"
-      ? "moss"
-      : "secondary";
-  return <Badge variant={variant}>{status.replace("_", " ")}</Badge>;
-}
-
-function tradeLabel(id: string): string {
-  return TRADES.find((t) => t.id === id)?.label ?? id;
 }
