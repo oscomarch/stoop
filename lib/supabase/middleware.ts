@@ -38,7 +38,7 @@ export async function updateSession(request: NextRequest) {
 
   // Protect authed routes
   const path = request.nextUrl.pathname;
-  const protectedPrefixes = ["/dashboard", "/jobs", "/profile"];
+  const protectedPrefixes = ["/dashboard", "/jobs", "/profile", "/onboarding"];
   const isProtected = protectedPrefixes.some((p) => path.startsWith(p));
 
   if (isProtected && !user) {

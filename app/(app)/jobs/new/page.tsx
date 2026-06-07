@@ -1,11 +1,26 @@
-import { ComingSoon } from "@/components/app/coming-soon";
+import type { Metadata } from "next";
 
-export default function NewJobPage() {
+import { requireUser } from "@/lib/auth";
+import { PostJobForm } from "./post-job-form";
+
+export const metadata: Metadata = { title: "Post a job" };
+
+export default async function NewJobPage() {
+  const user = await requireUser();
+
   return (
-    <ComingSoon
-      title="Post a job"
-      description="The job posting flow with photos and a map-pinned location (exact address stays hidden until you hire) is up next."
-      cta={{ href: "/dashboard", label: "Back to home" }}
-    />
+    <div className="mx-auto max-w-xl">
+      <div className="mb-8">
+        <h1 className="font-serif text-3xl font-semibold tracking-tight text-ink-900">
+          Post a job.
+        </h1>
+        <p className="mt-2 text-ink-600">
+          Up to 5 local pros bid over the next 48 hours. You won&apos;t see a single bid until
+          the window closes, so the prices stay honest.
+        </p>
+      </div>
+
+      <PostJobForm userId={user.id} />
+    </div>
   );
 }
