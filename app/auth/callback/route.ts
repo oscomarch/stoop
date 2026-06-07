@@ -14,7 +14,7 @@ import { users } from "@/lib/db/schema";
 export async function GET(request: NextRequest) {
   const url = new URL(request.url);
   const code = url.searchParams.get("code");
-  const next = url.searchParams.get("next") ?? "/dashboard";
+  const explicitNext = url.searchParams.get("next");
 
   if (!code) {
     return NextResponse.redirect(new URL("/sign-in", request.url));
@@ -53,5 +53,11 @@ export async function GET(request: NextRequest) {
     console.error("[auth/callback] backfill failed:", err);
   }
 
-  return NextResponse.redirect(new URL(next, request.url));
+  // New contractors go straight to onboarding; the onboarding page bounces
+  // them to /profile if they already have a profile. Everyone else lands on
+  // their dashboard, unless a specific `next` was requested.
+  const destination =
+    explicitNext ?? (role === "contractor" ? "/onboarding" : "/dashboard");
+
+  return NextResponse.redirect(new URL(destination, request.url));
 }
