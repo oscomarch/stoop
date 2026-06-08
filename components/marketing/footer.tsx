@@ -9,8 +9,8 @@ export function MarketingFooter() {
         <div className="lg:col-span-2">
           <Logo className="text-cream-50" />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-cream-300">
-            The neighborhood marketplace for home services. Built in Brooklyn
-            with care, for the people who actually live on the block.
+            The neighborhood marketplace for home services. Made in Brooklyn,
+            for the people who actually live on the block.
           </p>
         </div>
 

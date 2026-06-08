@@ -267,21 +267,22 @@ function RolePill({
  */
 export function WaitlistSection() {
   return (
-    <section id="waitlist" className="bg-cream-50 py-24">
+    <section id="waitlist" className="bg-cream-100 py-24">
       <div className="mx-auto grid max-w-6xl gap-16 px-6 lg:grid-cols-5 lg:items-center">
         <div className="lg:col-span-2">
           <p className="text-sm font-semibold uppercase tracking-widest text-terracotta-700">
             Get on the list
           </p>
           <h2 className="mt-3 font-serif text-4xl font-semibold tracking-tight text-ink-900 text-balance md:text-5xl">
-            Stoop launches block by block.
+            Stoop opens block by block.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-ink-600 text-pretty">
-            Tell us where you live and we&apos;ll let you know the moment Stoop
-            is live in your neighborhood. Brooklyn first. The rest soon.
+            Tell us where you live and we&apos;ll let you know the day it goes
+            live near you. Brooklyn first. More soon.
           </p>
           <p className="mt-4 text-base text-ink-600">
-            If you work in the trades, expect a call from us within a few days for a quick verification chat.
+            If you work in the trades, expect a short call from us to verify your
+            license.
           </p>
         </div>
         <div className="lg:col-span-3">

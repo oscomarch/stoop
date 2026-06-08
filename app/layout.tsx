@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s · Stoop",
   },
   description:
-    "Stoop is the neighborhood marketplace for home services. Find a vetted plumber, electrician, or handyman through your block. Built for Brooklyn brownstones, then everywhere.",
+    "The neighborhood marketplace for home services. Post a job, get sealed bids from vetted local pros, then read reviews from your real neighbors. Starting in Brooklyn.",
   keywords: [
     "home services",
     "handyman",
