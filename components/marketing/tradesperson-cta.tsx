@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Calendar, FileText, ShieldCheck, Wallet } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { WorkerCrew } from "@/components/brand/worker-crew";
 import { Reveal, Stagger, StaggerItem } from "./motion";
 
 const benefits = [
@@ -33,7 +34,7 @@ export function TradespersonCta() {
       <div className="relative z-[2] mx-auto max-w-7xl px-6">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            <p className="text-sm font-semibold uppercase tracking-widest text-cream-200">
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-cream-200">
               For pros
             </p>
             <h2 className="mt-3 font-serif text-4xl font-semibold tracking-tight text-cream-50 text-balance md:text-5xl">
@@ -69,6 +70,8 @@ export function TradespersonCta() {
             ))}
           </Stagger>
         </div>
+
+        <WorkerCrew className="mt-20" />
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { m, useReducedMotion } from "motion/react";
 import { Camera, Lock, ShieldCheck, Users } from "lucide-react";
 
 import { Reveal, Stagger, StaggerItem } from "./motion";
@@ -42,9 +42,17 @@ const STEPS = [
 export function BlindBids() {
   return (
     <section id="how" className="bg-cream-50 py-24">
+      <div
+        aria-hidden
+        className="mx-auto mb-16 flex max-w-[200px] items-center gap-3 px-6"
+      >
+        <span className="h-px flex-1 bg-ink-200" />
+        <span className="h-1.5 w-1.5 rotate-45 bg-terracotta-500" />
+        <span className="h-px flex-1 bg-ink-200" />
+      </div>
       <div className="mx-auto max-w-6xl px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-terracotta-700">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-terracotta-700">
             How a job works
           </p>
           <h2 className="mt-3 font-serif text-4xl font-semibold tracking-tight text-ink-900 text-balance md:text-5xl">
@@ -80,7 +88,7 @@ export function BlindBids() {
                   <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-ink-900 text-cream-50">
                     <s.icon className="h-5 w-5" />
                   </span>
-                  <span className="font-serif text-3xl font-light text-terracotta-300">
+                  <span className="font-mono text-2xl font-light tracking-tight text-terracotta-400">
                     0{i + 1}
                   </span>
                 </div>
@@ -101,7 +109,7 @@ function BidCard({ bid, index }: { bid: Bid; index: number }) {
   const reduce = useReducedMotion();
   return (
     <div className="h-44 w-[150px] [perspective:1200px] sm:w-40">
-      <motion.div
+      <m.div
         className="relative h-full w-full [transform-style:preserve-3d]"
         initial={reduce ? false : { rotateY: 0 }}
         whileInView={{ rotateY: 180 }}
@@ -113,7 +121,7 @@ function BidCard({ bid, index }: { bid: Bid; index: number }) {
           <span className="flex h-11 w-11 items-center justify-center rounded-full border border-cream-50/25">
             <Lock className="h-5 w-5" />
           </span>
-          <span className="text-xs font-medium uppercase tracking-widest text-cream-300">
+          <span className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-cream-300">
             Sealed
           </span>
           <span className="flex gap-1">
@@ -130,16 +138,20 @@ function BidCard({ bid, index }: { bid: Bid; index: number }) {
               {bid.name[0]}
             </span>
             <div className="leading-tight">
-              <p className="text-sm font-semibold text-ink-900">{bid.name}</p>
-              <p className="text-[11px] text-moss-600">Verified pro</p>
+              <p className="font-ui text-sm font-semibold text-ink-900">{bid.name}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-moss-600">
+                Verified pro
+              </p>
             </div>
           </div>
           <div>
-            <p className="font-serif text-3xl font-semibold text-ink-900">{bid.price}</p>
+            <p className="font-mono text-2xl font-semibold tracking-tight tabular-nums text-ink-900">
+              {bid.price}
+            </p>
             <p className="text-xs text-ink-500">{bid.note}</p>
           </div>
         </Face>
-      </motion.div>
+      </m.div>
     </div>
   );
 }

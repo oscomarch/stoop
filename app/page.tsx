@@ -1,6 +1,7 @@
 import { MarketingNav } from "@/components/marketing/nav";
 import { Hero } from "@/components/marketing/hero";
 import { ProblemSection } from "@/components/marketing/problem-section";
+import { StoopChat } from "@/components/marketing/stoop-chat";
 import { BlockWalk } from "@/components/marketing/block-walk";
 import { BlindBids } from "@/components/marketing/blind-bids";
 import { TradesGrid } from "@/components/marketing/trades-grid";
@@ -15,6 +16,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <ProblemSection />
+        <StoopChat />
         <BlockWalk />
         <BlindBids />
         <TradesGrid />

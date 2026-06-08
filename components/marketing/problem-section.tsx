@@ -32,7 +32,7 @@ export function ProblemSection() {
     <section className="grain-overlay relative overflow-hidden bg-ink-900 py-24 text-cream-50">
       <div className="relative z-[2]">
         <Reveal className="mx-auto max-w-2xl px-6 text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-terracotta-400">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-terracotta-400">
             The way it works now
           </p>
           <h2 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-balance md:text-5xl">
@@ -49,7 +49,7 @@ export function ProblemSection() {
             {oldWay.map((t) => (
               <span
                 key={t}
-                className="mx-3 rounded-full border border-cream-50/15 px-4 py-1.5 text-sm text-cream-300"
+                className="mx-3 rounded-full border border-cream-50/15 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.08em] text-cream-300"
               >
                 {t}
               </span>

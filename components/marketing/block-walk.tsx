@@ -2,10 +2,18 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
+import { m, useScroll, useTransform, useReducedMotion } from "motion/react";
 import { ArrowRight, Star } from "lucide-react";
 
 import { Brownstone, type BrownstoneTone } from "@/components/brand/art";
+
+const TONE_VARIANT: Record<BrownstoneTone, number> = {
+  brick: 0,
+  clay: 2,
+  rust: 5,
+  limestone: 1,
+  ink: 3,
+};
 
 type Stop = {
   distance: string;
@@ -106,8 +114,8 @@ function ReviewStop({ stop }: { stop: Stop }) {
           <span
             className={
               stop.closest
-                ? "rounded-full bg-moss-500/15 px-2.5 py-0.5 text-xs font-semibold text-moss-600"
-                : "rounded-full bg-cream-100 px-2.5 py-0.5 text-xs font-semibold text-ink-600"
+                ? "rounded-full bg-moss-500/15 px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.08em] text-moss-600"
+                : "rounded-full bg-cream-100 px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-[0.08em] text-ink-600"
             }
           >
             {stop.distance}
@@ -122,7 +130,7 @@ function ReviewStop({ stop }: { stop: Stop }) {
         </p>
       </div>
       <div className="mt-5 h-[190px] md:h-[250px]">
-        <Brownstone tone={stop.tone} className="h-full w-auto" />
+        <Brownstone tone={stop.tone} variant={TONE_VARIANT[stop.tone]} className="h-full w-auto" />
       </div>
     </div>
   );
@@ -193,23 +201,23 @@ function BlockWalkPinned() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-cream-100"
+      className="relative bg-cream-50"
       style={{ height: distance + viewportH }}
     >
       <div className="sticky top-0 flex h-[100svh] items-end overflow-hidden pb-[9%]">
         {/* fixed context label */}
         <div className="pointer-events-none absolute inset-x-0 top-0 z-20 flex items-start justify-between px-6 pt-20 md:px-10">
-          <p className="text-sm font-semibold uppercase tracking-widest text-terracotta-700">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-terracotta-700">
             The neighbor-trust layer
           </p>
-          <p className="hidden text-xs font-medium uppercase tracking-widest text-ink-400 sm:block">
+          <p className="hidden font-mono text-xs font-medium uppercase tracking-[0.12em] text-ink-400 sm:block">
             Marco&apos;s Plumbing, closest first
           </p>
         </div>
 
         {/* sidewalk line behind the houses */}
         <div className="pointer-events-none absolute inset-x-0 bottom-[9%] z-0 h-3 bg-ink-900/85" />
-        <motion.div
+        <m.div
           ref={trackRef}
           style={{ x }}
           className="relative z-10 flex items-end gap-8 px-[8vw] will-change-transform md:gap-12"
@@ -219,9 +227,9 @@ function BlockWalkPinned() {
             <ReviewStop key={s.name + s.street} stop={s} />
           ))}
           <OutroPanel />
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           style={{ scaleX: scrollYProgress }}
           className="absolute inset-x-0 bottom-0 z-20 h-1 origin-left bg-terracotta-500"
         />
@@ -234,9 +242,9 @@ function BlockWalkPinned() {
 
 function BlockWalkStatic() {
   return (
-    <section className="bg-cream-100 py-20">
+    <section className="bg-cream-50 py-20">
       <div className="mx-auto max-w-xl px-6">
-        <p className="text-sm font-semibold uppercase tracking-widest text-terracotta-700">
+        <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-terracotta-700">
           The neighbor-trust layer
         </p>
         <h2 className="mt-3 font-serif text-4xl font-semibold leading-tight tracking-tight text-ink-900">

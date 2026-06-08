@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname),
   },
+  // `framer-motion` ships in Next's default optimize list, but this app uses
+  // the newer `motion` package, so opt it in explicitly to keep barrel imports
+  // (hooks, AnimatePresence) from pulling more than they use.
+  experimental: {
+    optimizePackageImports: ["motion"],
+  },
 };
 
 export default nextConfig;

@@ -270,7 +270,7 @@ export function WaitlistSection() {
     <section id="waitlist" className="bg-cream-100 py-24">
       <div className="mx-auto grid max-w-6xl gap-16 px-6 lg:grid-cols-5 lg:items-center">
         <div className="lg:col-span-2">
-          <p className="text-sm font-semibold uppercase tracking-widest text-terracotta-700">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-terracotta-700">
             Get on the list
           </p>
           <h2 className="mt-3 font-serif text-4xl font-semibold tracking-tight text-ink-900 text-balance md:text-5xl">

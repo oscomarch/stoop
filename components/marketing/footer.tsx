@@ -15,7 +15,7 @@ export function MarketingFooter() {
         </div>
 
         <nav className="text-sm">
-          <p className="font-semibold uppercase tracking-wider text-cream-300">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-cream-300">
             Product
           </p>
           <ul className="mt-4 space-y-2">
@@ -38,7 +38,7 @@ export function MarketingFooter() {
         </nav>
 
         <nav className="text-sm">
-          <p className="font-semibold uppercase tracking-wider text-cream-300">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-cream-300">
             Company
           </p>
           <ul className="mt-4 space-y-2">

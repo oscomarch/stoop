@@ -6,7 +6,7 @@ export function TradesGrid() {
     <section className="bg-cream-50 py-24">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-terracotta-700">
+          <p className="font-mono text-xs font-medium uppercase tracking-[0.15em] text-terracotta-700">
             What we cover at launch
           </p>
           <h2 className="mt-3 font-serif text-4xl font-semibold tracking-tight text-ink-900 text-balance md:text-5xl">

@@ -3,7 +3,7 @@ import { StoopMark } from "@/components/brand/art";
 
 /**
  * The Stoop wordmark. A bold stepped stoop mark rising to a doorway, paired
- * with the wordmark set in Fraunces.
+ * with the wordmark set in Familjen Grotesk.
  */
 export function Logo({
   className,
@@ -18,10 +18,7 @@ export function Logo({
     <div className={cn("inline-flex items-center gap-2", className)}>
       <StoopMark size={size} />
       {showWord && (
-        <span
-          className="font-serif text-xl font-semibold tracking-tight"
-          style={{ fontFamily: "var(--font-fraunces)" }}
-        >
+        <span className="font-serif text-xl font-semibold tracking-tight">
           Stoop
         </span>
       )}

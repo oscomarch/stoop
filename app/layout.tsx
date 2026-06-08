@@ -1,18 +1,29 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import { Familjen_Grotesk, Hanken_Grotesk, Geist_Mono } from "next/font/google";
 
 import { PostHogProvider } from "@/components/analytics/posthog-provider";
+import { MotionProvider } from "@/components/motion/motion-provider";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Display + body: a Swedish grotesque with ink-trap notches for character.
+const familjen = Familjen_Grotesk({
+  variable: "--font-familjen",
+  subsets: ["latin"],
+  display: "swap",
+  style: ["normal", "italic"],
+});
+
+// Buttons + small UI labels: a calmer grotesque that reads clean at small sizes.
+const hanken = Hanken_Grotesk({
+  variable: "--font-hanken",
   subsets: ["latin"],
   display: "swap",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+// Numbers, prices, eyebrows, meta: a monospace so figures lock to one width.
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -58,10 +69,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+    <html
+      lang="en"
+      className={`${familjen.variable} ${hanken.variable} ${geistMono.variable}`}
+    >
       <body className="min-h-screen bg-background text-foreground antialiased">
         <Suspense fallback={null}>
-          <PostHogProvider>{children}</PostHogProvider>
+          <PostHogProvider>
+            <MotionProvider>{children}</MotionProvider>
+          </PostHogProvider>
         </Suspense>
       </body>
     </html>
